@@ -1,6 +1,7 @@
 require 'cassandra'
 require 'msgpack'
 require 'json'
+require 'date'
 
 module Fluent
   class CassandraCqlOutput < BufferedOutput
@@ -109,7 +110,9 @@ module Fluent
           when :integer
             value = value.to_i
           when :float
-            value = value.to_f          
+            value = value.to_f
+          when :date
+-            value = Date.parse(value)
           when :timeuuid
             value = ::Cassandra::Uuid::Generator.new.at(Time.parse(value))
           when :time
