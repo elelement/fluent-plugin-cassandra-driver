@@ -100,6 +100,7 @@ vi /etc/td-agent/td-agent.conf
 Available mappings:
 * :integer
 * :string
+* :date
 * :timeuuid
 * :time
 * :bool
