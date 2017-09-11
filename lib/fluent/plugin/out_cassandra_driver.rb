@@ -112,9 +112,11 @@ module Fluent
           when :float
             value = value.to_f
           when :date
--            value = Date.parse(value)
+            value = Date.parse(value)
+          when :strtimeuuid
+            value = ::Cassandra::Uuid::Generator.new.at(Time.parse(value)) # Use with string datetimes.
           when :timeuuid
-            value = ::Cassandra::Uuid::Generator.new.at(Time.parse(value))
+            value = ::Cassandra::Uuid::Generator.new.at(value) # Directly use a microsecond timestamp (useful for high time precision with record_transformer ${time.to_f} and enable_ruby
           when :time
             value = Time.parse(value)
           when :bool
