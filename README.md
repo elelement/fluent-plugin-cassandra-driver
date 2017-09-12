@@ -16,7 +16,7 @@ This project is working and has been tested with the versions:
 
 ```
 td-agent-gem install specific_install
-td-agent-gem specific_install https://github.com/adiazgalache/fluent-plugin-cassandra-driver
+td-agent-gem specific_install https://github.com/elelement/fluent-plugin-cassandra-driver
 ```
 
 # Quick Start
